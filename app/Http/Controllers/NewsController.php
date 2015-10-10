@@ -16,17 +16,13 @@ class NewsController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    public function all_headers()
-    {
-
         $all_headers = DB::table('news')->select('header')->get();
 
-        return view('news', ['all_headers' => $all_headers]);
-        
+        $current_news = DB::table('news')->take(1)->get();
+
+        return view('news', ['all_headers' => $all_headers, 'current_news' => $current_news]);
     }
+
 
     /**
      * Show the form for creating a new resource.

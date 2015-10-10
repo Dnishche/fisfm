@@ -106,21 +106,24 @@
 
 	<!--News-->
     <section id="news">
+    
         <div class="container">
             <div class="center wow fadeInDown">
-                <h2><a href="news">Новини</a></h2>
+                <h2><a href="news/{$id}">Новини</a></h2>
                 <p class="lead">Найсвіжіші новини із життя факультету</p>
             </div>
 
+                
             <div class="row">
+            
                 <div class="col-xs-12 col-sm-4 col-md-3">
                     <div class="recent-work-wrap">
                         <img class="img-responsive" src="asset/images/portfolio/recent/item1.png" alt="">
                         <div class="overlay">
                             <div class="recent-work-inner">
-                                <h3><a href="news">Заголовок новини</a></h3>
+                                <h3><a href="">{{}}</a></h3>
                                 <p>Короткий опис навини</p>
-                                <a class="preview" href="news"><i class="fa fa-eye"></i> Переглянути</a>
+                                <a class="preview" href="news/{1}"><i class="fa fa-eye"></i> Переглянути</a>
                             </div> 
                         </div>
                     </div>
@@ -164,9 +167,11 @@
                         </div>
                     </div>
                 </div>   
-        
+                
+
             </div>
         </div>
+
     </section>
 
 <!--Chair-->

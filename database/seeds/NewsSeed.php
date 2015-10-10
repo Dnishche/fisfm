@@ -13,7 +13,7 @@ class NewsSeed extends Seeder
     {
         DB::table('news')->insert([
             'header' => str_random(10),
-            'description' => str_random(100),         
+            'description' => str_random(100),   
         ]);
     }
 }

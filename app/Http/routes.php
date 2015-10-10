@@ -12,12 +12,14 @@
 */
 
 Route::get('/', function () {
+
     return view('home');
 });
 
-Route::get('/news/', 'NewsController@all_headers');
+Route::get('/news/', 'NewsController@index');
 
 Route::get('/home_main-slider/', function () {
+
     return view('home');
 });
 

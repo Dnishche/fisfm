@@ -45,55 +45,36 @@
 	
 	<div class="container">
 
+@foreach($current_news as $headers)
+
       <div class="blog-header">
-        <h1 class="blog-title">Заголовок новини</h1>
+        <h1 class="blog-title">{{$headers -> header}}</h1>
       </div>
 
       <div class="row">
 
         <div class="col-sm-8 blog-main">
-
+        
         <img src="asset/images/portfolio/full/item1.png" alt="sss" class="img-responsive">
 
           <div class="blog-post">
-           <p class="blog-post-meta">1 Січня, 2014</p>
+           <p class="blog-post-meta">{{$headers -> created_at}}</p>
+           <hr>
 
-            <p>Це повідомлення в блозі демонструє кілька різних типів вмісту, які підтримуються та стилізуються з Bootstrap. Базова типографія, зображення - все це підтримується.</p>
-            <hr>
-            <p>Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.</p>
-            <blockquote>
-              <p>Curabitur blandit tempus porttitor. <strong>Nullam quis risus eget urna mollis</strong> ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            </blockquote>
-            <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-            <h2>Заголовок</h2>
-            <p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
-            <h3>Підзаголовок</h3>
-            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-            <pre><code>Example code block</code></pre>
-            <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.</p>
-            <h3>Підзаголовок</h3>
-            <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <ul>
-              <li>Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</li>
-              <li>Donec id elit non mi porta gravida at eget metus.</li>
-              <li>Nulla vitae elit libero, a pharetra augue.</li>
-            </ul>
-            <p>Donec ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.</p>
-            <ol>
-              <li>Vestibulum id ligula porta felis euismod semper.</li>
-              <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
-              <li>Maecenas sed diam eget risus varius blandit sit amet non magna.</li>
-            </ol>
-            <p>Cras mattis consectetur purus sit amet fermentum. Sed posuere consectetur est at lobortis.</p>
+            <p>{{$headers -> description}}
+            
+            
           </div>
+          
 
           <div class="comments">
           	
           </div>
 
-          
+          @endforeach
 
         </div>
+  
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
           <div class="sidebar-module">
@@ -104,16 +85,13 @@
                 <tr><a href="#"><h4>Архів новин</h4></a></tr>
               </td>
             </table>
-
-              <?php foreach ($all_headers as $headers){ ?>
+            @foreach($all_headers as $headers)
             <table class="table">
-
                     <tr>
-                      <a href="#"><h5> <?php echo $headers -> header ?> </h5></a>
+                      <a href="#"><h5> {{$headers -> header}}  </h5></a>
                     </tr>
-
             </table>
-			       <?php }?>
+            @endforeach
 
 
           </div>

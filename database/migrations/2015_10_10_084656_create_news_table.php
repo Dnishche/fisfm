@@ -17,6 +17,7 @@ class CreateNewsTable extends Migration
             $table->string('header')->nullable();
             $table->string('description')->nullable();
             $table->timestamps('date_create');
+            $table->timestamps();
         });
     }
 
