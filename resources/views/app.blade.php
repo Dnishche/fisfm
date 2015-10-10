@@ -31,7 +31,7 @@
 <body class="homepage">
 
 
-@yield('content');
+@yield('content')
 
 
     <script src="asset/js/jquery.js"></script>

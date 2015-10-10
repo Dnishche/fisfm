@@ -97,38 +97,25 @@
 
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
           <div class="sidebar-module">
-          <table class="table">
-  					<td>
-  						<tr><a href="#"><h4>Архів новин</h4></a></tr>
-  					</td>
-  				</table>
-            <div class="table-responsive">
-  				<table class="table">
-  					<td>
-  						<tr><a href="#">Березень 2014</a></tr>
-  					</td>
-  				</table>
-  				<table class="table">
-  					<td>
-  						<tr><a href="#">Березень 2014</a></tr>
-  					</td>
-  				</table>
-  				<table class="table">
-  					<td>
-  						<tr><a href="#">Березень 2014</a></tr>
-  					</td>
-  				</table>
-  				<table class="table">
-  					<td>
-  						<tr><a href="#">Березень 2014</a></tr>
-  					</td>
-  				</table>
-  				<table class="table">
-  					<td>
-  						<tr><a href="#">Березень 2014</a></tr>
-  					</td>
-  				</table>
-			</div>
+
+          
+            <table class="table">
+              <td>
+                <tr><a href="#"><h4>Архів новин</h4></a></tr>
+              </td>
+            </table>
+
+              <?php foreach ($all_headers as $headers){ ?>
+            <table class="table">
+
+                    <tr>
+                      <a href="#"><h5> <?php echo $headers -> header ?> </h5></a>
+                    </tr>
+
+            </table>
+			       <?php }?>
+
+
           </div>
         </div>
       </div>

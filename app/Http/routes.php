@@ -15,15 +15,13 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/news/', function () {
-    return view('news');
-});
+Route::get('/news/', 'NewsController@all_headers');
 
 Route::get('/home_main-slider/', function () {
-    return view('home').'#mainslider';
+    return view('home');
 });
 
 Route::get('/home_news/', function () {
-    return response()->view('home')->header('#news', '#news');
+    return view('home');
 });
 
