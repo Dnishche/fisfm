@@ -108,70 +108,39 @@
     <section id="news">
     
         <div class="container">
+
             <div class="center wow fadeInDown">
                 <h2><a href="news">Новини</a></h2>
                 <p class="lead">Найсвіжіші новини із життя факультету</p>
             </div>
+                <div class="row">
+                <div class="{{$time=0}}"></div>
 
-                
-            <div class="row">
-            
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <div class="recent-work-wrap">
-                        <img class="img-responsive" src="asset/images/portfolio/recent/item1.png" alt="">
-                        <div class="overlay">
-                            <div class="recent-work-inner">
-                                <h3><a href="#">Заголовок новини</a></h3>
-                                <p>Короткий опис навини</p>
-                                <a class="preview" href="#"><i class="fa fa-eye"></i> Переглянути</a>
-                            </div> 
+                @foreach($news_for_home as $news)
+
+                <div class="{{$time=$time+1}}"></div>
+
+                    <div class="col-xs-12 col-sm-4 col-md-3 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="{{300*$time}}ms">
+                        <div class="recent-work-wrap">
+                            <img class="img-responsive" src="asset/images/portfolio/recent/item4.png" alt="">    
                         </div>
-                    </div>
-                </div>   
 
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <div class="recent-work-wrap">
-                        <img class="img-responsive" src="asset/images/portfolio/recent/item2.png" alt="">
-                        <div class="overlay">
-                            <div class="recent-work-inner">
-                                <h3><a href="#">Заголовок новини</a></h3>                                
-                                <p>Короткий опис навини</p>
-                                <a class="preview" href="#"><i class="fa fa-eye"></i> Переглянути</a>
-                            </div> 
-                        </div>
-                    </div>
-                </div> 
-
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <div class="recent-work-wrap">
-                        <img class="img-responsive" src="asset/images/portfolio/recent/item3.png" alt="">
-                        <div class="overlay">
-                            <div class="recent-work-inner">
-                                <h3><a href="#">Заголовок новини</a></h3>                                
-                                <p>Короткий опис навини</p>
-                                <a class="preview" href="#"><i class="fa fa-eye"></i> Переглянути</a>
-                            </div> 
-                        </div>
-                    </div>
-                </div>   
-
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <div class="recent-work-wrap">
-                        <img class="img-responsive" src="asset/images/portfolio/recent/item4.png" alt="">
-                        <div class="overlay">
-                            <div class="recent-work-inner">
-                                <h3><a href="#">Заголовок новини</a></h3> 
-                                <p>Короткий опис навини</p>
-                                <a class="preview" href="#"><i class="fa fa-eye"></i> Переглянути</a>
-                            </div> 
-                        </div>
-                    </div>
-                </div>   
-                
-
-            </div>
+                        <div class="overlay wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="{{300*$time}}ms">
+                                <div class="recent-work-inner">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <h3><a href="#">{{$news -> title}}</a></h3> 
+                                                <p>{{$news -> segment}}</p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div> 
+                            </div>
+                    </div>  
+                @endforeach
+                </div>     
         </div>
-
     </section>
 
 <!--Chair-->

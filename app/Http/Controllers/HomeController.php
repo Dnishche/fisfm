@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
+use Carbon\Carbon;
 
-class NewsController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,17 +17,13 @@ class NewsController extends Controller
      */
     public function index()
     {
+        $news_for_home = DB::table('news')
+                    ->orderBy('published_at', 'desc')
+                    ->take(4)
+                    ->get();
 
-        $all_news = DB::table('news')->get();
-
-        return view('news', ['all_news' => $all_news]);
+        return view('home', ['news_for_home' => $news_for_home]);
     }
-
-    public function review(News $titles)
-    {
-        return view('currentNews',['titles' => $titles]);        
-    }
-
 
     /**
      * Show the form for creating a new resource.

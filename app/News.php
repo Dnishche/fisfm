@@ -12,9 +12,4 @@ class News extends Model
 	protected $fillable = ['title', 'segment','content','published_at'];
 	protected $dates = ['deleted_at'];
 
-	public function getNewsForHome()
-    {
-        return News::orderBy('published_at','desc')->
-                      where('published_at','<=',Carbon::now())->take(3)->get();
-    }
 }
