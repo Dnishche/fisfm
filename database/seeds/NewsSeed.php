@@ -12,8 +12,9 @@ class NewsSeed extends Seeder
     public function run()
     {
         DB::table('news')->insert([
-            'header' => str_random(10),
-            'description' => str_random(100),   
+            'title' => str_random(10),
+            'segment' => str_random(100),
+            'content' => str_random(1000),   
         ]);
     }
 }

@@ -14,10 +14,12 @@ class CreateNewsTable extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('header')->nullable();
-            $table->string('description')->nullable();
-            $table->timestamps('date_create');
+            $table->string('title');
+            $table->string('segment')->nullable();
+            $table->text('content')->nullable();
+            $table->timestamp('published_at')->nullable();
             $table->timestamps();
+            $table->softDeletes();    
         });
     }
 

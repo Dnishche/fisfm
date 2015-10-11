@@ -16,11 +16,17 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $all_headers = DB::table('news')->select('header')->get();
 
-        $current_news = DB::table('news')->take(1)->get();
+        $all_news = DB::table('news')->get();
 
-        return view('news', ['all_headers' => $all_headers, 'current_news' => $current_news]);
+        $news = $NewsModel->getNewsForHome();
+
+        return view('news', ['news' => $news, 'all_news' => $all_news]);
+    }
+
+    public function review(News $titles)
+    {
+        return view('currentNews',['titles' => $titles]);        
     }
 
 

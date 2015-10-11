@@ -16,14 +16,12 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('home', function () {
+
+    return view('home');
+});
+
 Route::get('/news/', 'NewsController@index');
 
-Route::get('/home_main-slider/', function () {
-
-    return view('home');
-});
-
-Route::get('/home_news/', function () {
-    return view('home');
-});
+Route::get('/news/{titles}/',['as' => 'viewNews', 'uses' => 'NewsController@review']);
 

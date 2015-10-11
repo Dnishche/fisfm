@@ -12,11 +12,11 @@
           <div class="col-xs-12 col-sm-6 col-md-8">
             <div class="navbar-nav">
               <ul class="nav navbar-nav">
-                <li><a class="page-scroll" href="home_main-slider">Головна</a></li>
-                  <li><a class="page-scroll" href="home_news">Новини</a></li>
-                  <li><a class="page-scroll" href="home#chair">Кафедри</a></li>
-                  <li><a class="page-scroll" href="home#students">Студентам</a></li> 
-                  <li><a class="page-scroll" href="home#bottom">Контакти</a></li>    
+                <li><a class="page-scroll" href="home">Головна</a></li>
+                  <li><a class="page-scroll" href="home">Новини</a></li>
+                  <li><a class="page-scroll" href="home">Кафедри</a></li>
+                  <li><a class="page-scroll" href="home">Студентам</a></li> 
+                  <li><a class="page-scroll" href="home">Контакти</a></li>    
                 </ul>
             </div>       
           </div>
@@ -44,61 +44,30 @@
 <section id="news">
 	
 	<div class="container">
-
-@foreach($current_news as $headers)
-
-      <div class="blog-header">
-        <h1 class="blog-title">{{$headers -> header}}</h1>
-      </div>
-
-      <div class="row">
-
-        <div class="col-sm-8 blog-main">
-        
-        <img src="asset/images/portfolio/full/item1.png" alt="sss" class="img-responsive">
-
-          <div class="blog-post">
-           <p class="blog-post-meta">{{$headers -> created_at}}</p>
-           <hr>
-
-            <p>{{$headers -> description}}
-            
-            
-          </div>
-          
-
-          <div class="comments">
-          	
-          </div>
-
-          @endforeach
-
-        </div>
   
-
-        <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-          <div class="sidebar-module">
-
-          
-            <table class="table">
-              <td>
-                <tr><a href="#"><h4>Архів новин</h4></a></tr>
-              </td>
-            </table>
-            @foreach($all_headers as $headers)
-            <table class="table">
-                    <tr>
-                      <a href="#"><h5> {{$headers -> header}}  </h5></a>
-                    </tr>
-            </table>
+    <div class="news-post">
+      @if(count($all_news)==0)
+        <p class="center empty"><i class="icon-info-sign"></i> Новин ще немає</p>
+      @else
+       <table>
+          <td>
+            @foreach($all_news as $titles)
+              <tr>
+                <div class="col-lg-8">
+                  <article class="post news-post">
+                    <a href="#"><h4 class="title">{{ $titles->title }}</h4></a>
+                    <img src="asset/images /portfolio/recent/item4.png">
+                    <p class="date-time">Опубліковано: {{$titles->created_at}}</p>
+                    <p class="description">{{ $titles->segment }}</p>
+                  </article>
+                </div>
+              </tr>
             @endforeach
-
-
-          </div>
-        </div>
-      </div>
-
-    </div>
+          </td>
+        </table>
+      @endif
+    </div>    
+  </div>
 
 </section>
 

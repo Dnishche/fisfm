@@ -33,6 +33,17 @@
 
 @yield('content')
 
+<!--Footer-->
+    <footer id="footer" class="midnight-blue">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    &copy; 2015 <a target="_blank">ISPM</a>. All Rights Reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
 
     <script src="asset/js/jquery.js"></script>
     <script src="asset/js/bootstrap.min.js"></script>

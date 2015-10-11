@@ -109,7 +109,7 @@
     
         <div class="container">
             <div class="center wow fadeInDown">
-                <h2><a href="news/{$id}">Новини</a></h2>
+                <h2><a href="news">Новини</a></h2>
                 <p class="lead">Найсвіжіші новини із життя факультету</p>
             </div>
 
@@ -121,9 +121,9 @@
                         <img class="img-responsive" src="asset/images/portfolio/recent/item1.png" alt="">
                         <div class="overlay">
                             <div class="recent-work-inner">
-                                <h3><a href="">{{}}</a></h3>
+                                <h3><a href="#">Заголовок новини</a></h3>
                                 <p>Короткий опис навини</p>
-                                <a class="preview" href="news/{1}"><i class="fa fa-eye"></i> Переглянути</a>
+                                <a class="preview" href="#"><i class="fa fa-eye"></i> Переглянути</a>
                             </div> 
                         </div>
                     </div>
@@ -134,9 +134,9 @@
                         <img class="img-responsive" src="asset/images/portfolio/recent/item2.png" alt="">
                         <div class="overlay">
                             <div class="recent-work-inner">
-                                <h3><a href="news">Заголовок новини</a></h3>                                
+                                <h3><a href="#">Заголовок новини</a></h3>                                
                                 <p>Короткий опис навини</p>
-                                <a class="preview" href="news"><i class="fa fa-eye"></i> Переглянути</a>
+                                <a class="preview" href="#"><i class="fa fa-eye"></i> Переглянути</a>
                             </div> 
                         </div>
                     </div>
@@ -147,9 +147,9 @@
                         <img class="img-responsive" src="asset/images/portfolio/recent/item3.png" alt="">
                         <div class="overlay">
                             <div class="recent-work-inner">
-                                <h3><a href="news">Заголовок новини</a></h3>                                
+                                <h3><a href="#">Заголовок новини</a></h3>                                
                                 <p>Короткий опис навини</p>
-                                <a class="preview" href="news"><i class="fa fa-eye"></i> Переглянути</a>
+                                <a class="preview" href="#"><i class="fa fa-eye"></i> Переглянути</a>
                             </div> 
                         </div>
                     </div>
@@ -160,9 +160,9 @@
                         <img class="img-responsive" src="asset/images/portfolio/recent/item4.png" alt="">
                         <div class="overlay">
                             <div class="recent-work-inner">
-                                <h3><a href="news">Заголовок новини</a></h3> 
+                                <h3><a href="#">Заголовок новини</a></h3> 
                                 <p>Короткий опис навини</p>
-                                <a class="preview" href="news"><i class="fa fa-eye"></i> Переглянути</a>
+                                <a class="preview" href="#"><i class="fa fa-eye"></i> Переглянути</a>
                             </div> 
                         </div>
                     </div>
@@ -325,15 +325,5 @@
     <div id="toTop"></div>
     <div id="toNext"></div>
 
-    <!--Footer-->
-    <footer id="footer" class="midnight-blue">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    &copy; 2015 <a target="_blank">ISPM</a>. All Rights Reserved.
-                </div>
-            </div>
-        </div>
-    </footer>
 
 @stop

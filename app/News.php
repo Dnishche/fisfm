@@ -9,12 +9,12 @@ use DB;
 class News extends Model
 {
 	protected $table = ['news'];
+	protected $fillable = ['title', 'segment','content','published_at'];
+	protected $dates = ['deleted_at'];
 
-	/*public function newsForHome()
+	public function getNewsForHome()
     {
-
-        $news_for_home = News::orderBy('date_create','desc')->where('date_create','<=',Carbon::now())->take(4)->get();
-
-        return $news_for_home;
-    }*/
+        return News::orderBy('published_at','desc')->
+                      where('published_at','<=',Carbon::now())->take(3)->get();
+    }
 }
