@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use DB;
-use Carbon\Carbon;
+
+use App\News;
+use App\Slider;
 
 class HomeController extends Controller
 {
@@ -17,12 +19,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $news_for_home = DB::table('news')
+        $newsForHome = News::where('active', '=', '1')
                     ->orderBy('published_at', 'desc')
                     ->take(4)
                     ->get();
 
-        return view('home', ['news_for_home' => $news_for_home]);
+        $slider = Slider::where('active', '=', '1')
+                    ->orderBy('weight', 'desc')
+                    ->get();
+
+        return view('home', ['newsForHome' => $newsForHome, 'slider' => $slider]);
     }
 
     /**

@@ -7,10 +7,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>ФІСФМ | Головна</title>
-	
+
+	<!-- <base href="{{ url() . '/' }}" target="_blank"> -->
+
 	<!-- core CSS -->
     <link href="asset/css/bootstrap.min.css" rel="stylesheet">
     <link href="asset/css/font-awesome.min.css" rel="stylesheet">
+    <link href="asset/css/font-awesome.css" rel="stylesheet">
+
     <link href="asset/css/animate.min.css" rel="stylesheet">
     <link href="asset/css/prettyPhoto.css" rel="stylesheet">
     <link href="asset/css/main.css" rel="stylesheet">
@@ -40,6 +44,7 @@
                 <div class="col-sm-6">
                     &copy; 2015 <a target="_blank">ISPM</a>. All Rights Reserved.
                 </div>
+                <ul><li><a href="admin">Сервіси</a></li></ul>
             </div>
         </div>
     </footer>
@@ -51,9 +56,7 @@
     <script src="asset/js/jquery.isotope.min.js"></script>
     <script src="asset/js/main.js"></script>
     <script src="asset/js/wow.min.js"></script>
-    <script src="asset/js/jquery.js"></script>
     <script src="asset/js/jquery.easing.min.js"></script>
     <script src="asset/js/scrolling-nav.js"></script>
-    
 </body>
 </html>

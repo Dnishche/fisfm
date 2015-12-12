@@ -1,96 +1,69 @@
-<?php
+<?php 
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use DB;
+use \Serverfireteam\Panel\CrudController;
 
-class NewsController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
+use Illuminate\Http\Request;
 
-        $all_news = DB::table('news')->get();
+class NewsController extends CrudController{
 
-        return view('news', ['all_news' => $all_news]);
+    public function all($entity){
+        parent::all($entity); 
+
+			$this->filter = \DataFilter::source(new \App\News);
+
+			$this->filter->add('active', 'Active', 'select')->options(\App\News::lists("Active", "active")->all());
+
+			$this->filter->add('title', 'Title', 'text');
+			$this->filter->add('title_en', 'Title(EN)', 'text');
+
+			$this->filter->add('published_at', 'Pub. Date', 'datetime')->format('Y-m-d H:i:s', 'uk');
+			$this->filter->add('created_at', 'Created Date', 'datetime')->format('Y-m-d H:i:s', 'uk');
+
+			$this->filter->submit('search');
+			$this->filter->reset('reset');
+			$this->filter->build();
+
+			$this->grid = \DataGrid::source($this->filter);
+			$this->grid->add('active', 'Active', 'active');
+
+			$this->grid->add('title', 'Title', 'title');
+			$this->grid->add('title_en', 'Title(En)', 'title_en');
+
+			$this->grid->add('segment', 'Segment');
+			$this->grid->add('content', 'Content');
+
+			$this->grid->add('published_at', 'Pub. Date', 'published_at');
+			$this->grid->add('created_at', 'Created Date', 'created_at');
+
+			$this->grid->add('img_url', 'Image');
+			$this->addStylesToGrid();
+                 
+        return $this->returnView();
     }
+    
+    public function  edit($entity){
+        parent::edit($entity);
+	
+			$this->edit = \DataEdit::source(new \App\News());
 
-    public function review(News $titles)
-    {
-        return view('currentNews',['titles' => $titles]);        
-    }
+			$this->edit->label('Edit News');
 
+			$this->edit->add('active', 'Active', 'checkbox');
+		
+			$this->edit->add('title', 'Title', 'text');
+			$this->edit->add('title_en', 'Title(En)', 'text');
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+			$this->edit->add('segment', 'Segment', 'text');
+			$this->edit->add('content', 'Content', 'redactor');
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+			$this->edit->add('published_at', 'Pub. Date', 'datetime')->format('Y-m-d H:i:s', 'uk');
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+			$this->edit->add('img_url', 'Image', 'file')->move('uploads/images/news/');
+       
+        return $this->returnEditView();
+    }    
 }

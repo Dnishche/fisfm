@@ -11,19 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-
-    return view('home');
-});
-
 /*Route::get('home', function () {
 
     return view('home');
 });*/
 
+Route::get('/', 'HomeController@index');
+
 Route::get('/home/', 'HomeController@index');
 
-Route::get('/news/', 'NewsController@index');
+Route::get('/news/', 'NoAdminNewsController@index');
 
-Route::get('/news/{titles}/',['as' => 'viewNews', 'uses' => 'NewsController@review']);
+/*Route::get('/auth/login', function() {
+    return View::make('auth/login');
+});*/
 
+//Route::resource('news', 'NewsController');
+
+Route::get('/news/{titles}/', ['as' => 'allForCurrentNews', 'uses' => 'NoAdminNewsController@show']);
